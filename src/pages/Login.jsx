@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { api } from "../utils/api";
 import Navbar from "../components/Navbar/Navbar";
-import Button  from "../components/Button"
+import Button from "../components/Button";
 
 const Login = () => {
-  const [isRegister, setIsRegister] = useState(false);
   const [form, setForm] = useState({ username: "", email: "", password: "" });
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -20,21 +19,14 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setLoading(true);
 
     try {
       let data;
-      if (isRegister) {
-        if (!form.username || !form.email || !form.password) {
-          throw new Error("All fields are required");
-        }
-        data = await api.register(form.username, form.email, form.password);
-      } else {
-        if (!form.email || !form.password) {
-          throw new Error("Email and password are required");
-        }
-        data = await api.login(form.email, form.password);
+      if (!form.email || !form.password) {
+        throw new Error(" Write Email and password");
+        data = await api.form(form.username, form.email, form.password);
       }
+      data = await api.login(form.email, form.password);
 
       login(data.user, data.token);
 
@@ -45,8 +37,6 @@ const Login = () => {
       }
     } catch (err) {
       setError(err.message);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -61,25 +51,22 @@ const Login = () => {
           className="card shadow border-0 p-4"
           style={{ maxWidth: "420px", width: "100%" }}
         >
-          <h2 className="text-center fw-bold mb-4">
-            {isRegister ? "Sign up" : "Log in"}
-          </h2>
+          <h2 className="text-center fw-bold mb-4">Login</h2>
 
           {error && <div className="alert alert-danger py-2">{error}</div>}
 
           <form onSubmit={handleSubmit}>
-            {isRegister && (
-              <div className="mb-3">
-                <label className="form-label">Username</label>
-                <input
-                  type="text"
-                  name="username"
-                  className="form-control"
-                  value={form.username}
-                  onChange={handleChange}
-                />
-              </div>
-            )}
+            <div className="mb-3">
+              <label className="form-label">Username</label>
+              <input
+                type="text"
+                name="username"
+                className="form-control"
+                value={form.username}
+                onChange={handleChange}
+              />
+            </div>
+
             <div className="mb-3">
               <label className="form-label">Email</label>
               <input
@@ -100,9 +87,9 @@ const Login = () => {
                 onChange={handleChange}
               />
             </div>
-           <Button className="w-100 mt-4" color="primary" type="submit">
-          Login
-        </Button>
+            <Button className="w-100 mt-4" color="primary" type="submit">
+              Login
+            </Button>
           </form>
         </div>
       </div>
