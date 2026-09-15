@@ -8,7 +8,7 @@ import Reservations from "./pages/Reservations";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLayout from "./pages/admin/AdminLayout";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+
 import AdminListings from "./pages/admin/AdminListings";
 import ListingForm from "./pages/admin/ListingForm";
 import AdminBookings from "./pages/admin/AdminBookings";
