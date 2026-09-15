@@ -7,9 +7,16 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.13.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.10.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.3",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.5.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -24,6 +31,7 @@
       "react-app/jest"
     ]
   },
+  "proxy": "http://localhost:5001",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -35,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
