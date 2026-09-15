@@ -35,7 +35,7 @@ const AdminListings = () => {
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h3 className="fw-bold mb-0">All Listings</h3>
         <div>
-          <Link to="/admin/reservations" className="btn btn-dark ">
+          <Link to="/admin/bookings" className="btn btn-dark ">
             View Reservations
           </Link>
           <Link

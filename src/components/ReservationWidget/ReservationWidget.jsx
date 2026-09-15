@@ -69,7 +69,7 @@ const ReservationWidget = ({ listing }) => {
           </span>
         </div>
 
-        <div className="border rounded-3 mb-3 overflow-hidden">
+        <div className="border rounded-3 mb-3 ">
           <div className="row g-0">
             <div className="col-6 border-end border-bottom p-2">
               <small className="text-muted fw-bold d-block" style={{ fontSize: "10px" }}>CHECK-IN</small>
