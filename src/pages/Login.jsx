@@ -56,16 +56,7 @@ const Login = () => {
           {error && <div className="alert alert-danger py-2">{error}</div>}
 
           <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Username</label>
-              <input
-                type="text"
-                name="username"
-                className="form-control"
-                value={form.username}
-                onChange={handleChange}
-              />
-            </div>
+            
 
             <div className="mb-3">
               <label className="form-label">Email</label>
